@@ -1,0 +1,26 @@
+{
+  "name": "yelp-camp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayankhooda/yelp-camp.git"
+  },
+  "author": "mayankhooda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayankhooda/yelp-camp/issues"
+  },
+  "homepage": "https://github.com/mayankhooda/yelp-camp#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.6",
+    "request": "^2.83.0"
+  }
+}
