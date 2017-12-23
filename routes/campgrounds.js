@@ -57,14 +57,17 @@ router.get("/:id", function(req, res) {
         });
 });
 
-router.put("/:id", function(req, res){
+router.put("/:id", function(req, res) {
     var id = req.params.id;
     var newCampground = {
         name: req.body.name,
         image: req.body.image,
         description: req.body.description
-    }
-    Campground.findByIdAndUpdate(id, newCampground,function(err, updatedCampground){
+    };
+    Campground.findByIdAndUpdate(id, newCampground, function(
+        err,
+        updatedCampground
+    ) {
         if (err) {
             console.log(err);
         } else {
@@ -84,9 +87,9 @@ router.get("/:id/edit", function(req, res) {
     });
 });
 
-router.delete("/:id", function(req, res){
+router.delete("/:id", function(req, res) {
     var id = req.params.id;
-    Campground.findByIdAndRemove(id, function(err, campground){
+    Campground.findByIdAndRemove(id, function(err, campground) {
         if (err) {
             console.log(err);
         } else {
