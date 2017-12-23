@@ -13,7 +13,6 @@ var express = require("express"),
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "public"));
-
 //
 // ─── PASSPORT CONFIGURATION ─────────────────────────────────────────────────────
 //
@@ -29,6 +28,10 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+app.use(function(req, res, next) {
+    res.locals.currentUser = req.user;
+    next();
+});
 // ────────────────────────────────────────────────────────────────────────────────
 
 //
@@ -51,7 +54,9 @@ app.get("/campgrounds", function(req, res) {
             console.log("ERROR FINDING ALL CAMPGROUNDS!!!");
         } else {
             //console.log("FOUND ALL CAMPGROUNDS!!!");
-            res.render("campgrounds/index", { campgrounds: allCampgrounds });
+            res.render("campgrounds/index", {
+                campgrounds: allCampgrounds
+            });
         }
     });
 });
