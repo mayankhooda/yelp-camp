@@ -2,7 +2,8 @@ var express = require("express"),
     app = express(),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
-    passport = require("passport"),
+	passport = require("passport"),
+	methodOverride = require("method-override"),
     LocalStrategy = require("passport-local"),
     Campground = require("./models/campground"),
     Comment = require("./models/comment"),
@@ -15,7 +16,8 @@ var commentRoutes = require("./routes/comments"),
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "public"));
+app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 
 //
 // ─── PASSPORT CONFIGURATION ─────────────────────────────────────────────────────
