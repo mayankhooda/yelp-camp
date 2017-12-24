@@ -47,8 +47,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments/", commentRoutes);
 // ────────────────────────────────────────────────────────────────────────────────
 
-mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/yelp-camp", { useMongoClient: true });
+mongoose.connect(process.env.DATABASEURL);
 
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("SERVER IS LISTENING AT => " + process.env.IP + ":" + process.env.PORT);
