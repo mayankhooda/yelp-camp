@@ -1,3 +1,3 @@
 # yelp-camp
 
-Deployed at [https://floating-retreat-40940.herokuapp.com/](heroku)
+Deployed at [heroku](https://floating-retreat-40940.herokuapp.com/)
